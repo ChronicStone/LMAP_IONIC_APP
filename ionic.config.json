@@ -1,0 +1,7 @@
+{
+  "name": "LMAP_Session_Manager",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
