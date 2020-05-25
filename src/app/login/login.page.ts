@@ -22,7 +22,11 @@ export class LoginPage implements OnInit {
 
   constructor(private apiService: ApiService, private router: Router, private location: Location) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if(this.apiService.isLoggedIn()) {
+      this.router.navigateByUrl("/sessions")
+    }
+  }
 
   logForm() {
     const md5 = new Md5();
