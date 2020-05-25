@@ -1,0 +1,32 @@
+$grey: #616070;
+$or: #AB8B65;
+$black: #2C2F33;
+$red: #FD6960;
+
+ion-content {
+    --background: none;
+    background-image: url('../../assets/img/bg.jpg');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div{
+    max-width: 400px;
+
+    img{
+        width: 80%;
+        margin: auto;
+        padding-top: 50px;
+    }
+}
+p{
+    padding: 20% 10%;
+    color: $grey;
+}
+
+ion-button{
+   display: block;
+   width: 50%;
+}
+
