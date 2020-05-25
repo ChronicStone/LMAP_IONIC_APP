@@ -2,50 +2,64 @@ $grey: #616070;
 $or: #ab8b65;
 $black: #2c2f33;
 $red: #fd6960;
-
 ion-content {
-  --background: none;
-  background-image: url("../../assets/img/bg.jpg");
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
+    // --background: none;
+    // background-image: url("../../assets/img/bg.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 div {
-  max-width: 400px;
-
-  img {
-    width: 80%;
-    margin: auto;
-    padding-top: 50px;
-  }
-
-  span {
-    display: block;
-    margin: auto;
-    border-radius: 20px;
-    width: 85%;
-    height: 1px;
-    background: #fff;
-    margin-top: 30px;
-  }
+    max-width: 400px;
+    img {
+        width: 80%;
+        margin: auto;
+        padding-top: 50px;
+    }
+    span {
+        display: block;
+        margin: auto;
+        border-radius: 20px;
+        width: 85%;
+        height: 1px;
+        background: #fff;
+        margin-top: 30px;
+    }
 }
 
 form {
-  padding: 15% 0;
-  width: 85%;
-  margin: auto;
-
-  ion-input {
-    color: $grey;
-    background: #fff;
-    border: 1px solid $grey;
-    border-radius: 10px;
-    margin: 30px 0px;
-  }
+    padding: 15% 0;
+    width: 85%;
+    margin: auto;
+    ion-input {
+        color: $grey;
+        background: #fff;
+        border: 1px solid $grey;
+        border-radius: 10px;
+        margin: 30px 0px;
+    }
 }
 
 ion-button {
-  display: block;
-  width: 50%;
+    display: block;
+    width: 50%;
+}
+
+ion-input {
+    border-radius: 10px !important;
+    padding-right: 30px;
+    font-size: 0.9em;
+    border: 1px solid #f1f1f1 !important;
+    --background: rgb(219, 219, 219) !important;
+    /* height: 10%; */
+    /* width: 41%; */
+}
+
+.errorBox {
+    background-color: rgba(255, 0, 0, 0.438);
+    color: #fff;
+    padding: 8px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
