@@ -1,17 +1,21 @@
 <div class="cardContainer">
-    <div class="firstLine">
-        <div class="title">
-            <ion-icon name="eye"></ion-icon>
-            Session label
-        </div>
-        <div class="expandButton">
-            <ion-icon name="arrow-down"></ion-icon>
+    <div class="" (click)="expand = !expand">
+        <div class="firstLine">
+            <div class="title">
+                <ion-icon name="reader-outline"></ion-icon>
+                Session label
+            </div>
+            <div class="expandButton">
+                <ion-icon *ngIf="expand === false" name="arrow-down"></ion-icon>
+                <ion-icon *ngIf="expand === true" name="arrow-up"></ion-icon>
+            </div>
         </div>
     </div>
-    <div class="secondLine">
-        dqzdq
-    </div>
-    <div class="hiddenContent">
-        test
+
+    <div class="hiddenContent" *ngIf="expand === true">
+        <div class="secondLine">
+            dqzdq
+        </div>
+        <ion-button style="width:100%;"> test </ion-button>
     </div>
 </div>

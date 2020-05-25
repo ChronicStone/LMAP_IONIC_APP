@@ -9,14 +9,24 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./sessions-list.page.scss'],
 })
 export class SessionsListPage implements OnInit {
-
+  sessionData: {}
   constructor(private apiService: ApiService, private router: Router, private location: Location) { }
 
   ngOnInit() {
     if(!this.apiService.isLoggedIn()) {
       this.router.navigateByUrl("/")
     }
-  }
+    this.apiService.getSessionsData().subscribe(
+      res => {
+        this.sessionData = res['data'][0]
+        console.log(this.sessionData)
+      },
+      err => {
+        console.log(err.message)
+      }
+    )
+   }
+
 
   logOut() {
     this.apiService.logOut()

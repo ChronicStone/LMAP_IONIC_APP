@@ -29,4 +29,9 @@ export class ApiService {
     }
     return false;
   }
+
+  getSessionsData() {
+    const managerId = JSON.parse(localStorage.getItem("userData")).id
+    return this.http.get(environment.apiBaseUrl + `/onsite-session/${managerId}`)
+  }
 }

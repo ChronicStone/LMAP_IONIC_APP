@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./session-card.component.scss'],
 })
 export class SessionCardComponent implements OnInit {
-  expand: boolean[]
+  expand = false
 
   constructor() { }
 
