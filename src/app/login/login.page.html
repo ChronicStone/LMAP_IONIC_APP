@@ -1,9 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <div class="block m-auto">
+    <img src="../../assets/img/logo.png" alt="LMAP_logo" />
+    <span></span>
+    <form (ngSubmit)="logForm()">
+      <ion-input
+        placeholder="Username"
+        type="text"
+        name="username"
+        [(ngModel)]="user.username"
+        required
+      ></ion-input>
+      <ion-input
+        placeholder="Passeword"
+        type="password"
+        name="pwd"
+        [(ngModel)]="user.pwd"
+        required
+      ></ion-input>
 
+      <ion-button type="submit" shape="round" color="primary" class="m-auto">
+        Connect
+      </ion-button>
+    </form>
+  </div>
 </ion-content>
