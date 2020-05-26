@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output } from "@angular/core";
 
 @Component({
   selector: "app-session-card",
@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./session-card.component.scss"],
 })
 export class SessionCardComponent implements OnInit {
-  expand = true;
+  expand = false;
 
   constructor() {}
 

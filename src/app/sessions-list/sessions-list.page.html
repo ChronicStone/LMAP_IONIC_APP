@@ -20,18 +20,17 @@
     </ion-fab-button>
   </ion-fab>
   <ion-item>
-    <ion-label>
+    <ion-label *ngIf="sessionData">
       <h3>
         <ion-icon style="margin-right: 5px;" name="calendar"></ion-icon>
-        MON 18 JAN 2020
+        {{sessionData.date}}
       </h3>
     </ion-label>
   </ion-item>
   <ion-list>
-    <app-session-card></app-session-card>
-    <app-session-card></app-session-card>
+    <app-session-card [sessionData]="sessionData"></app-session-card>
   </ion-list>
-  <ion-item>
+  <!-- <ion-item>
     <ion-label>
       <h3>
         <ion-icon style="margin-right: 5px;" name="calendar"></ion-icon>
@@ -55,5 +54,5 @@
   </ion-item>
   <ion-list>
     <app-session-card></app-session-card>
-  </ion-list>
+  </ion-list> -->
 </ion-content>
