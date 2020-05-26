@@ -30,6 +30,10 @@ export class ApiService {
     return false;
   }
 
+  getUserData() {
+    return JSON.parse(localStorage.getItem("userData"))
+  }
+
   getSessionsData() {
     const managerId = JSON.parse(localStorage.getItem("userData")).id
     return this.http.get(environment.apiBaseUrl + `/onsite-session/${managerId}`)
