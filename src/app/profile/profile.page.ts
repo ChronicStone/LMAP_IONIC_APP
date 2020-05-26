@@ -16,7 +16,15 @@ export class ProfilePage implements OnInit {
     private location: Location
   ) {}
 
-  ngOnInit() {}
+  userData: {};
+
+  ngOnInit() {
+    if (!this.apiService.isLoggedIn()) {
+      this.router.navigateByUrl("/");
+    }
+    this.userData = this.apiService.getUserData();
+    console.log(this.userData);
+  }
 
   logOut() {
     this.apiService.logOut();

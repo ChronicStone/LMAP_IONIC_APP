@@ -2,8 +2,8 @@
   <div class="firstLine">
     <div class="title">
       <ion-icon style="margin-right: 5px;" name="calendar"></ion-icon>
-      {{ session.date }}
-      <p>06/98/0298 At 8PM</p>
+
+      <p>{{ session.name }} at {{ session.convocation_time }}</p>
     </div>
     <div class="expandButton" (click)="expand = !expand">
       <ion-icon *ngIf="expand === false" name="arrow-down"></ion-icon>
@@ -14,10 +14,10 @@
   <div class="hiddenContent" *ngIf="expand === true">
     <div class="localisation">
       <ion-icon name="navigate-outline"></ion-icon>
-      <p>PULV, 12 Avenue Leonard de Vinci</p>
+      <p>{{ session.address }}</p>
     </div>
     <div class="infoUser">
-      <span>22</span>
+      <span>{{ nbassessments }}</span>
       <ion-icon name="people-outline"></ion-icon>
     </div>
   </div>

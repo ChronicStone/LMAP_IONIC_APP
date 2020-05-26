@@ -10,6 +10,7 @@ import { ApiService } from "../services/api.service";
 })
 export class SessionsListPage implements OnInit {
   sessionData: {};
+
   constructor(
     private apiService: ApiService,
     private router: Router,

@@ -8,10 +8,11 @@ import { Component, OnInit, Output, Input } from "@angular/core";
 export class SessionCardComponent implements OnInit {
   @Input() session: Object;
   expand = false;
+  nbassessments: Number;
 
   constructor() {}
 
   ngOnInit() {
-    console.log();
+    this.nbassessments = this.session.assessments.length;
   }
 }
