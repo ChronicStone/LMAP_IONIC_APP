@@ -1,51 +1,59 @@
-<ion-header>
-    <ion-toolbar class="flexWrapper">
-        <ion-title>SESSIONS D'EXAMEN</ion-title>
-    </ion-toolbar>
-</ion-header>
+<ion-toolbar>
+  <ion-buttons slot="secondary">
+    <ion-button>
+      <img src="../../assets/img/logo.png" alt="LMAP_logo" />
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+    <ion-button (click)="toProfile()">
+      User
+    </ion-button>
+  </ion-buttons>
+
+  <ion-title>Sessions</ion-title>
+</ion-toolbar>
 
 <ion-content>
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="success">
-        <ion-fab-button color="danger" (click)="logOut()">
-            <ion-icon name="log-out-outline"></ion-icon>
-        </ion-fab-button>
-    </ion-fab>
-    <ion-item>
-        <ion-label>
-            <h3>
-                <ion-icon style="margin-right:5px;" name="calendar"></ion-icon>
-                MON 18 JAN 2020
-            </h3>
-        </ion-label>
-    </ion-item>
-    <ion-list>
-        <app-session-card></app-session-card>
-        <app-session-card></app-session-card>
-    </ion-list>
-    <ion-item>
-        <ion-label>
-            <h3>
-                <ion-icon style="margin-right:5px;" name="calendar"></ion-icon>
-                FRI 22 JAN 2020
-            </h3>
-        </ion-label>
-    </ion-item>
-    <ion-list>
-        <app-session-card></app-session-card>
-        <app-session-card></app-session-card>
-        <app-session-card></app-session-card>
-        <app-session-card></app-session-card>
-    </ion-list>
-    <ion-item>
-        <ion-label>
-            <h3>
-                <ion-icon style="margin-right:5px;" name="calendar"></ion-icon>
-                SAT 23 JAN 2020
-            </h3>
-        </ion-label>
-    </ion-item>
-    <ion-list>
-        <app-session-card></app-session-card>
-    </ion-list>
-
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="success">
+    <ion-fab-button color="danger" (click)="logOut()">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-item>
+    <ion-label>
+      <h3>
+        <ion-icon style="margin-right: 5px;" name="calendar"></ion-icon>
+        MON 18 JAN 2020
+      </h3>
+    </ion-label>
+  </ion-item>
+  <ion-list>
+    <app-session-card></app-session-card>
+    <app-session-card></app-session-card>
+  </ion-list>
+  <ion-item>
+    <ion-label>
+      <h3>
+        <ion-icon style="margin-right: 5px;" name="calendar"></ion-icon>
+        FRI 22 JAN 2020
+      </h3>
+    </ion-label>
+  </ion-item>
+  <ion-list>
+    <app-session-card></app-session-card>
+    <app-session-card></app-session-card>
+    <app-session-card></app-session-card>
+    <app-session-card></app-session-card>
+  </ion-list>
+  <ion-item>
+    <ion-label>
+      <h3>
+        <ion-icon style="margin-right: 5px;" name="calendar"></ion-icon>
+        SAT 23 JAN 2020
+      </h3>
+    </ion-label>
+  </ion-item>
+  <ion-list>
+    <app-session-card></app-session-card>
+  </ion-list>
 </ion-content>

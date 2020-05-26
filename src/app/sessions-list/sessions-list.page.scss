@@ -1,12 +1,48 @@
+$grey: #616070;
+$or: #ab8b65;
+$black: #2c2f33;
+$red: #fd6960;
+$blanc: #f4f6f7;
+
+ion-toolbar {
+  --background: #f4f6f7;
+  height: 75px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  position: relative;
+
+  img {
+    width: 20%;
+    margin-right: auto;
+  }
+
+  ion-button {
+    color: black;
+  }
+
+  ion-title {
+    color: black;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 27px;
+  }
+}
+
 .cardLabel {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .iconClass {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .flexWrapper {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }

@@ -1,0 +1,47 @@
+$grey: #616070;
+$or: #ab8b65;
+$black: #2c2f33;
+$red: #fd6960;
+$blanc: #f4f6f7;
+
+.container {
+  margin-top: 30px;
+  img {
+    width: 50%;
+    display: block;
+    margin: auto;
+  }
+
+  ion-button {
+    display: block;
+    width: 50%;
+    margin: auto;
+  }
+}
+
+ion-grid {
+  max-width: 90%;
+  margin: auto;
+
+  ion-row {
+    margin: 25px 0;
+
+    ion-col {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-bottom: 5px;
+        color: $grey;
+      }
+
+      span {
+        color: $blanc;
+      }
+
+      input {
+        display: none;
+      }
+    }
+  }
+}

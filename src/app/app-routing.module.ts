@@ -13,7 +13,11 @@ const routes: Routes = [
   {
     path: 'sessions',
     loadChildren: () => import('./sessions-list/sessions-list.module').then( m => m.SessionsListPageModule)
+  },  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   }
+
 
 ];
 @NgModule({
