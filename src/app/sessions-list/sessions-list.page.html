@@ -19,40 +19,16 @@
       <ion-icon name="log-out-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  <ion-item>
-    <ion-label *ngIf="sessionData">
+
+  <div *ngFor="let session of sessionData; let i = index;" class="wrapper">
+    <ion-label *ngIf="session">
       <h3>
         <ion-icon style="margin-right: 5px;" name="calendar"></ion-icon>
-        {{sessionData.date}}
+        <span>{{session.date}}</span>
       </h3>
     </ion-label>
-  </ion-item>
-  <ion-list>
-    <app-session-card [sessionData]="sessionData"></app-session-card>
-  </ion-list>
-  <!-- <ion-item>
-    <ion-label>
-      <h3>
-        <ion-icon style="margin-right: 5px;" name="calendar"></ion-icon>
-        FRI 22 JAN 2020
-      </h3>
-    </ion-label>
-  </ion-item>
-  <ion-list>
-    <app-session-card></app-session-card>
-    <app-session-card></app-session-card>
-    <app-session-card></app-session-card>
-    <app-session-card></app-session-card>
-  </ion-list>
-  <ion-item>
-    <ion-label>
-      <h3>
-        <ion-icon style="margin-right: 5px;" name="calendar"></ion-icon>
-        SAT 23 JAN 2020
-      </h3>
-    </ion-label>
-  </ion-item>
-  <ion-list>
-    <app-session-card></app-session-card>
-  </ion-list> -->
+    <ion-list>
+      <app-session-card [session]="session"></app-session-card>
+    </ion-list>
+  </div>
 </ion-content>

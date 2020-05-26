@@ -22,7 +22,7 @@ export class SessionsListPage implements OnInit {
     }
     this.apiService.getSessionsData().subscribe(
       (res) => {
-        this.sessionData = res["data"][0];
+        this.sessionData = res["data"];
         console.log(this.sessionData);
       },
       (err) => {
