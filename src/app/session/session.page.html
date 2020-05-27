@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="goBsack()">
+      <ion-button>
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goSearch()">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      <img src="../../assets/img/logo.png" alt="LMAP_logo" />
+    </ion-title>
+  </ion-toolbar>
+
+  <app-session-card [session]="session"></app-session-card>
+</ion-header>
+
+<ion-content>
+  <div class="wrapper">
+    <div class="row" *ngFor="let user of session.assessments; let i = index;">
+      <p>{{user.first_name}}</p>
+    </div>
+  </div>
+</ion-content>
