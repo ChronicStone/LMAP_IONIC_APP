@@ -11,7 +11,12 @@
     </div>
   </div>
 
-  <div class="hiddenContent" *ngIf="expand === true">
+  <div
+    class="hiddenContent"
+    [ngClass]="{
+      reveal: expand
+    }"
+  >
     <div class="localisation">
       <ion-icon name="navigate-outline"></ion-icon>
       <p>{{ session.address }}</p>
@@ -20,5 +25,14 @@
       <span>{{ nbassessments }}</span>
       <ion-icon name="people-outline"></ion-icon>
     </div>
+
+    <ion-button
+      shape="round"
+      color="primary"
+      (click)="toLogin()"
+      class="m-auto"
+    >
+      See more
+    </ion-button>
   </div>
 </div>
