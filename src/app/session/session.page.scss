@@ -1,5 +1,6 @@
 $black: #2c2f33;
 $blanc: #f4f6f7;
+$red: #fd6960;
 
 ion-title {
   img {
@@ -16,9 +17,12 @@ ion-header {
 .wrapper {
   display: flex;
   flex-direction: column;
-  padding: 10px 0;
+  padding: 10px 0 60px 0;
 
   .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 90%;
     margin-left: 5%;
     padding: 16px;
@@ -31,7 +35,15 @@ ion-header {
     p {
       color: $black;
     }
+    i,
+    ion-icon {
+      color: $black;
+    }
   }
+}
+
+.red {
+  background: $red !important;
 }
 
 nav {

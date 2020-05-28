@@ -21,8 +21,17 @@
 
 <ion-content>
   <div class="wrapper">
-    <div class="row" *ngFor="let user of session.assessments; let i = index;">
+    <div
+      class="row"
+      *ngFor="let user of users | absent:{status: 1}"
+      [ngClass]="{
+      red: user.statut == 2
+      }"
+    >
       <p>{{user.first_name}}</p>
+      <i *ngIf="user.statut == 2" class="fas fa-user-edit"></i>
+      <ion-icon *ngIf="user.statut == 1" name="checkmark-outline"></ion-icon>
+      <i *ngIf="user.statut == 0" class="fas fa-user-alt-slash"></i>
     </div>
   </div>
 
