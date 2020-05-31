@@ -23,7 +23,7 @@
   <div class="wrapper">
     <div
       class="row"
-      *ngFor="let user of users | absent:{status: 1}"
+      *ngFor="let user of users | absent : filter"
       [ngClass]="{
       red: user.statut == 2
       }"
@@ -38,17 +38,17 @@
   <nav>
     <ul>
       <li>
-        <ion-button>
+        <ion-button (click)="seeDone()">
           <ion-icon name="checkmark-outline"></ion-icon>
         </ion-button>
       </li>
       <li>
-        <ion-button>
+        <ion-button (click)="seeEdit()">
           <i class="fas fa-user-edit"></i>
         </ion-button>
       </li>
       <li>
-        <ion-button>
+        <ion-button (click)="seeAbsent()">
           <i class="fas fa-user-alt-slash"></i>
         </ion-button>
       </li>
