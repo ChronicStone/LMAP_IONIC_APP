@@ -30,14 +30,6 @@ export class SessionPage implements OnInit {
       for (let t = 0; t < this.session.assessments.length; t++) {
         this.users.push(this.session.assessments[t]);
       }
-
-      for (let i = 0; i < this.users.length; i++) {
-        if (i > 4) {
-          this.users[i].statut = this.statut = "1";
-        } else {
-          this.users[i].statut = this.statut = "2";
-        }
-      }
       console.log(this.users);
     }
   }
