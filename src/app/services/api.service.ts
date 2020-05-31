@@ -17,7 +17,7 @@ export class ApiService {
   }
 
   logOut() {
-    localStorage.removeItem("userData");
+    localStorage.clear();
   }
 
   setUserData(userData) {
@@ -49,5 +49,6 @@ export class ApiService {
 
   getData(id) {
     return this.data[id];
+
   }
 }

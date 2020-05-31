@@ -36,7 +36,6 @@ export class SessionPage implements OnInit {
       for (let t = 0; t < this.session.assessments.length; t++) {
         this.users.push(this.session.assessments[t]);
       }
-
       for (let i = 0; i < this.users.length; i++) {
         this.users[i].full_name =
           this.users[i].first_name + " " + this.users[i].last_name;
