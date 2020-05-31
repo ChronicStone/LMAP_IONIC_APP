@@ -3,9 +3,18 @@ $blanc: #f4f6f7;
 $red: #fd6960;
 
 ion-title {
+  font-weight: 500;
   img {
     width: 40%;
     margin: auto;
+  }
+
+  input {
+    width: 100%;
+    border-bottom: 1px solid $black;
+    border-left: 1px solid $black;
+
+    color: $black;
   }
 }
 
@@ -62,7 +71,7 @@ nav {
     li {
       ion-button {
         --background: $blanc;
-        box-shadow: 0px 2px 5px 2px rgba(187, 187, 187, 0.226);
+        box-shadow: 0px 0px 5px 2px rgba(187, 187, 187, 0.226);
 
         border-radius: 10px;
 
