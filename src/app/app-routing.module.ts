@@ -38,6 +38,11 @@ const routes: Routes = [
     loadChildren: () =>
       import("./session/session.module").then((m) => m.SessionPageModule),
   },
+  {
+    path: 'assessment-check/:id',
+    loadChildren: () => import('./assessment-check/assessment-check.module').then( m => m.AssessmentCheckPageModule)
+  },
+
 ];
 @NgModule({
   imports: [

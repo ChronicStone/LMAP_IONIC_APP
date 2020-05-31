@@ -1,85 +1,67 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start" (click)="goBack()">
-      <ion-button>
-        <ion-icon name="chevron-back-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button (click)="goSearch()" *ngIf="searchMode === false">
-        <ion-icon name="search-outline"></ion-icon>
-      </ion-button>
-      <ion-button (click)="resetSearch()" *ngIf="searchMode === true">
-        <ion-icon name="close-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+    <ion-toolbar>
+        <ion-buttons slot="start" (click)="goBack()">
+            <ion-button>
+                <ion-icon name="chevron-back-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button (click)="goSearch()" *ngIf="searchMode === false">
+                <ion-icon name="search-outline"></ion-icon>
+            </ion-button>
+            <ion-button (click)="resetSearch()" *ngIf="searchMode === true">
+                <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
 
-    <ion-title>
-      <img
-        src="../../assets/img/logo.png"
-        *ngIf="searchMode === false"
-        alt="LMAP_logo"
-      />
-      <input
-        type="text"
-        *ngIf="searchMode === true"
-        [formControl]="searchControl"
-      />
-    </ion-title>
-  </ion-toolbar>
+        <ion-title>
+            <img src="../../assets/img/logo.png" *ngIf="searchMode === false" alt="LMAP_logo" />
+            <input type="text" *ngIf="searchMode === true" [formControl]="searchControl" />
+        </ion-title>
+    </ion-toolbar>
 
-  <app-session-card [session]="session"></app-session-card>
+    <app-session-card [showBtn]="false" [session]="session"></app-session-card>
 </ion-header>
 
 <ion-content>
-  <div class="wrapper" *ngIf="users?.length > 0; else none">
-    <div
-      class="row"
-      *ngFor="let user of users | absent : filter"
-      [ngClass]="{
+    <div class="wrapper" *ngIf="users?.length > 0; else none">
+        <div class="row" *ngFor="let user of users | absent : filter" [ngClass]="{
       red: user.onsite_session_status == 2
-      }"
-    >
-      <p>{{user.first_name}}</p>
-      <i *ngIf="user.onsite_session_status == 2" class="fas fa-user-edit"></i>
-      <ion-icon
-        *ngIf="user.onsite_session_status == 1"
-        name="checkmark-outline"
-      ></ion-icon>
-      <i
-        *ngIf="user.onsite_session_status == 0"
-        class="fas fa-user-alt-slash"
-      ></i>
+      }">
+            <p>{{user.first_name}}</p>
+            <i *ngIf="user.onsite_session_status == 2" class="fas fa-user-edit"></i>
+            <ion-icon *ngIf="user.onsite_session_status == 1" name="checkmark-outline"></ion-icon>
+            <i *ngIf="user.onsite_session_status == 0" class="fas fa-user-alt-slash"></i>
+        </div>
     </div>
-  </div>
-  <ng-template #none>
-    <div class="flex justify-center items-center pt-5">
-      <p>No assessments yet</p>
-    </div>
-  </ng-template>
+    <ng-template #none>
+        <div class="flex justify-center items-center pt-5">
+            <p>No assessments yet</p>
+        </div>
+    </ng-template>
 
-  <nav>
-    <ul>
-      <li>
-        <ion-button (click)="seeDone()">
-          <ion-icon name="checkmark-outline"></ion-icon>
-        </ion-button>
-      </li>
-      <li>
-        <ion-button (click)="seeEdit()">
-          <i class="fas fa-user-edit"></i>
-        </ion-button>
-      </li>
-      <li>
-        <ion-button (click)="seeAbsent()">
-          <i class="fas fa-user-alt-slash"></i>
-        </ion-button>
-      </li>
-      <li>
-        <ion-button (click)="seeReset()">
-          <ion-icon name="people-outline"></ion-icon>
-        </ion-button>
-      </li>
-    </ul>
-  </nav>
+    <nav>
+        <ul>
+            <li>
+                <ion-button (click)="seeDone()">
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                </ion-button>
+            </li>
+            <li>
+                <ion-button (click)="seeEdit()">
+                    <i class="fas fa-user-edit"></i>
+                </ion-button>
+            </li>
+            <li>
+                <ion-button (click)="seeAbsent()">
+                    <i class="fas fa-user-alt-slash"></i>
+                </ion-button>
+            </li>
+            <li>
+                <ion-button (click)="seeReset()">
+                    <ion-icon name="people-outline"></ion-icon>
+                </ion-button>
+            </li>
+        </ul>
+    </nav>
 </ion-content>

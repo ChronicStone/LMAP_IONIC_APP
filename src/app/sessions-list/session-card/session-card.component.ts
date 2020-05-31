@@ -9,7 +9,8 @@ import { ApiService } from "../../services/api.service";
   styleUrls: ["./session-card.component.scss"],
 })
 export class SessionCardComponent implements OnInit {
-  @Input() session: Object;
+  @Input() session: any;
+  @Input() showBtn: any;
   expand = false;
   id = Number;
   nbassessments: Number;

@@ -1,34 +1,34 @@
 <ion-toolbar>
-  <ion-buttons slot="start">
-    <ion-button>
-      <img src="../../assets/img/logo.png" alt="LMAP_logo" />
-    </ion-button>
-  </ion-buttons>
-  <ion-buttons slot="end">
-    <ion-button (click)="toProfile()">
-      User
-    </ion-button>
-  </ion-buttons>
+    <ion-buttons slot="start">
+        <ion-button>
+            <img src="../../assets/img/logo.png" alt="LMAP_logo" />
+        </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+        <ion-button (click)="toProfile()">
+            User
+        </ion-button>
+    </ion-buttons>
 
-  <ion-title>Sessions</ion-title>
+    <ion-title>Sessions</ion-title>
 </ion-toolbar>
 
 <ion-content>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="success">
-    <ion-fab-button color="danger" (click)="logOut()">
-      <ion-icon name="log-out-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="success">
+        <ion-fab-button color="danger" (click)="logOut()">
+            <ion-icon name="log-out-outline"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 
-  <div *ngFor="let session of sessionData; let i = index;" class="wrapper">
-    <ion-label *ngIf="session">
-      <h3>
-        <ion-icon style="margin-right: 5px;" name="calendar"></ion-icon>
-        <span>{{session.date}}</span>
-      </h3>
-    </ion-label>
-    <ion-list>
-      <app-session-card [session]="session"></app-session-card>
-    </ion-list>
-  </div>
+    <div *ngFor="let session of sessionData; let i = index;" class="wrapper">
+        <div class="dateLabelWrapper" *ngIf="session && checkSessionDate(session, i)">
+            <div>
+                <ion-icon style="margin-right: 5px;padding-top:5px;color:#777777;" name="calendar"></ion-icon>
+            </div>
+            <span class="dateLabelText">{{session.date}}</span>
+        </div>
+        <ion-list>
+            <app-session-card [showBtn]="true" [session]="session"></app-session-card>
+        </ion-list>
+    </div>
 </ion-content>
