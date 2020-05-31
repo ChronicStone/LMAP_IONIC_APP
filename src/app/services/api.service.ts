@@ -35,6 +35,13 @@ export class ApiService {
     return JSON.parse(localStorage.getItem("userData"));
   }
 
+  updateUserData(id, data) {
+    return this.http.put(
+      environment.apiBaseUrl + "/session-manager/" + id,
+      data
+    );
+  }
+
   getSessionsData() {
     const managerId = JSON.parse(localStorage.getItem("userData")).id;
     return this.http.get(

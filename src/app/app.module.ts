@@ -10,10 +10,10 @@ import { StatusBar } from "@ionic-native/status-bar/ngx";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AbsentPipe } from "./pipes/absent.pipe";
-import { PresentPipe } from "./pipes/present.pipe";
+
 
 @NgModule({
-  declarations: [AppComponent, AbsentPipe, PresentPipe],
+  declarations: [AppComponent, AbsentPipe, ],
   entryComponents: [],
   imports: [
     BrowserModule,

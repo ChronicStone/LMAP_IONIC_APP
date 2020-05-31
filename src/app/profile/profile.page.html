@@ -17,52 +17,58 @@
   </ion-header>
 
   <div class="container">
-    <img src="../../assets/img/logo.png" alt="picture_profile" />
+    <form>
+      <img src="../../assets/img/logo.png" alt="picture_profile" />
 
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <label>TEST CENTER NAME :</label>
-          <span>{{userData.test_center.name}}</span>
-          <input type="text" />
-        </ion-col>
-      </ion-row>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <label>TEST CENTER NAME :</label>
+            <span>{{userData.test_center.name}}</span>
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col>
+            <label>EMAIL :</label>
+            <span *ngIf="editMode === false">{{userData.email}}</span>
+            <input  *ngIf="editMode === true" [(ngModel)]="email" name="email" type="text"/>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col>
+            <label>FIRST NAME :</label>
+            <span *ngIf="editMode === false">{{userData.first_name}}</span>
+            <input  *ngIf="editMode === true" [(ngModel)]="first_name" name="first_name" type="text" />
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col>
+            <label>LAST NAME :</label>
+            <span *ngIf="editMode === false">{{userData.last_name}}</span>
+            <input  *ngIf="editMode === true" [(ngModel)]="last_name" name="last_name"type="text" />
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col>
+            <label>PHONE NUMBER :</label>
+            <span *ngIf="editMode === false">{{userData.phone_number}}</span>
+            <input  *ngIf="editMode === true" [(ngModel)]="phone_number"name="phone_number" type="text" />
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+        
+        <ion-button *ngIf="editMode === false" (click)="edit()">
+          Edit
+        </ion-button>
+        <ion-button *ngIf="editMode === true" (click)="submit(data)" type="submit ">
+          Update
+        </ion-button>
 
-      <ion-row>
-        <ion-col>
-          <label>EMAIL :</label>
-          <span>{{userData.email}}</span>
-          <input type="text" />
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col>
-          <label>FIRST NAME :</label>
-          <span>{{userData.first_name}}</span>
-          <input type="text" />
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col>
-          <label>LAST NAME :</label>
-          <span>{{userData.last_name}}</span>
-          <input type="text" />
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col>
-          <label>PHONE NUMBER :</label>
-          <span>{{userData.phone_number}}</span>
-          <input type="tel" />
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <ion-button (click)="edit()">
-      Editer
-    </ion-button>
+     </form>
+  
   </div>
 </ion-content>
