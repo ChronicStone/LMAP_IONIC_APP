@@ -1,14 +1,31 @@
 <ion-content>
     <div class="block m-auto">
-        <img src="../../assets/img/logo.png" alt="LMAP_logo" />
+        <img src="../../assets/img/logo.png" alt="LMAP_logo">
         <span></span>
-        <form (ngSubmit)="logForm()">
-            <ion-input placeholder="Username" type="text" name="username" [(ngModel)]="user.email" required class="inputStyle"></ion-input>
-            <ion-input placeholder="Passeword" type="password" name="pwd" [(ngModel)]="user.password" required></ion-input>
+        <form (ngSubmit)="logForm()" autocomplete="disabled" class="form">
+            <!-- Ionic Dashboard Style -->
+            <div class="group -material">
+                <input class="field" type="text" name="username" [(ngModel)]="user.email" required autocomplete="new-usernamew-e">
+                <label class="title">Email</label>
+            </div>
+            <div class="group -material">
+                <input class="field" type="password" name="pwd" [(ngModel)]="user.password" required autocomplete="new-password">
+                <label class="title">Password</label>
+            </div>
+
+
+
+
+
 
             <ion-button type="submit" shape="round" color="primary" class="m-auto">
                 Connect
             </ion-button>
+
+
+
+
+
 
             <div *ngIf="isError === true" class="errorBox">
                 <p>{{loginErr}}</p>

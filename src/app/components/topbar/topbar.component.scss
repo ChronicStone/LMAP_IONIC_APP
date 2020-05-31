@@ -1,0 +1,15 @@
+.topbarWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.title {
+    img {
+        height: 45px;
+    }
+}
+
+ion-avatar {
+    box-shadow: 0px 0px 8px 0px rgba(116, 116, 116, 0.26);
+}
