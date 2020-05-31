@@ -1,34 +1,47 @@
-<ion-toolbar>
-  <ion-buttons slot="secondary">
-    <ion-button>
-      <img src="../../assets/img/logo.png" alt="LMAP_logo" />
-    </ion-button>
-  </ion-buttons>
-  <ion-buttons slot="end">
-    <ion-button (click)="toProfile()">
-      User
-    </ion-button>
-  </ion-buttons>
+<app-topbar></app-topbar>
 
-  <ion-title>Sessions</ion-title>
-</ion-toolbar>
 
-<ion-content>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="success">
-    <ion-fab-button color="danger" (click)="logOut()">
-      <ion-icon name="log-out-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+<!-- <ion-toolbar>
+    <ion-buttons slot="secondary">
+        <ion-button>
+            <img src="../../assets/img/logo.png" alt="LMAP_logo">
+        </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+        <ion-avatar style="width:150px">
+            <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png">
+        </ion-avatar>
+    </ion-buttons>
+    <ion-title>Sessions</ion-title>
+</ion-toolbar> -->
 
-  <div *ngFor="let session of sessionData; let i = index;" class="wrapper">
-    <ion-label *ngIf="session">
-      <h3>
-        <ion-icon style="margin-right: 5px;" name="calendar"></ion-icon>
-        <span>{{session.date}}</span>
-      </h3>
-    </ion-label>
-    <ion-list>
-      <app-session-card [session]="session"></app-session-card>
-    </ion-list>
-  </div>
+
+<ion-content *ngIf="!mounted">
+    <ion-spinner></ion-spinner>
+</ion-content>
+
+
+<ion-content *ngIf="mounted">
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="success">
+        <ion-fab-button color="danger" (click)="logOut()">
+            <ion-icon name="log-out-outline"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+
+    <div *ngFor="let session of sessionData; let i = index;" class="wrapper">
+        <div class="dateLabelWrapper" *ngIf="session && checkSessionDate(session, i)">
+            <div>
+                <ion-icon style="margin-right: 5px;padding-top:5px;" name="calendar"></ion-icon>
+            </div>
+            <span class="dateLabelText">{{session.date}}</span>
+        </div>
+        <!-- <h3>
+                <ion-icon style="margin-right: 5px;padding-top:5px;" name="calendar"></ion-icon>
+                
+            </h3> -->
+        <ion-list>
+            <app-session-card [session]="session"></app-session-card>
+        </ion-list>
+    </div>
 </ion-content>

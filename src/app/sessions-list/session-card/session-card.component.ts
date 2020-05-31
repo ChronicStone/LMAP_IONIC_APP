@@ -6,7 +6,7 @@ import { Component, OnInit, Output, Input } from "@angular/core";
   styleUrls: ["./session-card.component.scss"],
 })
 export class SessionCardComponent implements OnInit {
-  @Input() session: Object;
+  @Input() session: any;
   expand = false;
   nbassessments: Number;
 

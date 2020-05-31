@@ -1,38 +1,45 @@
 <div class="cardContainer">
-  <div class="firstLine">
-    <div class="title">
-      <ion-icon style="margin-right: 5px;" name="calendar"></ion-icon>
-
-      <p>{{ session.name }} at {{ session.convocation_time }}</p>
+    <div class="firstLine" (click)="expand = !expand">
+        <div class="title">
+            <ion-icon style="margin-right: 5px;" name="barcode-outline"></ion-icon>
+            <p>
+                {{ session.name | uppercase }} - {{ session.convocation_time }}
+            </p>
+        </div>
+        <div class="expandButton">
+            <ion-icon *ngIf="expand === false" name="arrow-down"></ion-icon>
+            <ion-icon *ngIf="expand === true" name="arrow-up"></ion-icon>
+        </div>
     </div>
-    <div class="expandButton" (click)="expand = !expand">
-      <ion-icon *ngIf="expand === false" name="arrow-down"></ion-icon>
-      <ion-icon *ngIf="expand === true" name="arrow-up"></ion-icon>
-    </div>
-  </div>
 
-  <div
-    class="hiddenContent"
-    [ngClass]="{
+
+
+
+
+    <div class="hiddenContent" [ngClass]="{
       reveal: expand
-    }"
-  >
-    <div class="localisation">
-      <ion-icon name="navigate-outline"></ion-icon>
-      <p>{{ session.address }}</p>
-    </div>
-    <div class="infoUser">
-      <span>{{ nbassessments }}</span>
-      <ion-icon name="people-outline"></ion-icon>
-    </div>
+    }">
+        <div class="localisation">
+            <ion-icon name="navigate-outline"></ion-icon>
+            <p class="addressText">
+                {{ session.address }}, {{session.zip_code}} {{session.city | uppercase}}
+            </p>
+        </div>
+        <div class="roomData">
+            <p>
+                <b>ROOM NAME :</b> {{session.room_name}}
+            </p>
+            <p>
+                <b>ROOM CAPACITY :</b> {{session.room_max_capacity}}
+            </p>
+        </div>
 
-    <ion-button
-      shape="round"
-      color="primary"
-      (click)="toLogin()"
-      class="m-auto"
-    >
-      See more
-    </ion-button>
-  </div>
+
+
+
+
+        <ion-button shape="round" color="primary" (click)="toLogin()" class="m-auto">
+            See more
+        </ion-button>
+    </div>
 </div>
