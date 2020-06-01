@@ -10,20 +10,20 @@ import { ApiService } from "../services/api.service";
   styleUrls: ["./profile.page.scss"],
 })
 export class ProfilePage implements OnInit {
-  editMode: Boolean = false
-  email:string
-  last_name:string
-  first_name:string
-  phone_number:Number
+  editMode: Boolean = false;
+  email: string;
+  last_name: string;
+  first_name: string;
+  phone_number: Number;
 
-  userId:Number
+  userId: Number;
   constructor(
     private apiService: ApiService,
     private router: Router,
     private location: Location
   ) {}
 
-  userData: {};
+  userData: any;
 
   ngOnInit() {
     if (!this.apiService.isLoggedIn()) {
@@ -31,11 +31,11 @@ export class ProfilePage implements OnInit {
     }
     this.userData = this.apiService.getUserData();
     console.log(this.userData);
-    this.email = this.userData.email
-    this.last_name = this.userData.last_name
-    this.first_name= this.userData.first_name
-    this.phone_number= this.userData.phone_number
-    this.userId = this.userData.id
+    this.email = this.userData.email;
+    this.last_name = this.userData.last_name;
+    this.first_name = this.userData.first_name;
+    this.phone_number = this.userData.phone_number;
+    this.userId = this.userData.id;
   }
 
   logOut() {
@@ -47,35 +47,32 @@ export class ProfilePage implements OnInit {
     this.location.back();
   }
 
-  edit(){
-    this.editMode = true
+  edit() {
+    this.editMode = true;
   }
 
-  submit(){
+  submit() {
     const user = {
       email: this.email,
       first_name: this.first_name,
       last_name: this.last_name,
-      phone_number: this.phone_number
-    }
+      phone_number: this.phone_number,
+    };
 
-    console.log(user)
+    console.log(user);
     this.apiService.updateUserData(this.userId, user).subscribe(
-      res => {
-        console.log(res)
-        if(res['success'] != false) {
-          this.apiService.setUserData(res.updatedData)
-          this.userData = res.updatedData
-
-        }
-        else {
-
+      (res) => {
+        console.log(res);
+        if (res["success"] != false) {
+          this.apiService.setUserData(res["updatedData"]);
+          this.userData = res["updatedData"];
+        } else {
         }
       },
-      err => {
-       console.log(err.error.message);
+      (err) => {
+        console.log(err.error.message);
       }
-    )
-    this.editMode =false
+    );
+    this.editMode = false;
   }
 }
