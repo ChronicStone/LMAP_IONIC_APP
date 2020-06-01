@@ -1,0 +1,28 @@
+<ion-header>
+    <div class="headerForm">
+        <div class="headerItem" [ngClass]="{activeItem: formStep >= 1, inactiveItem: formStep < 1}">
+            1
+        </div>
+        <div class="headerItem activeItem" [ngClass]="{activeItem: formStep >= 2, inactiveItem: formStep < 2}">
+            2
+        </div>
+        <div class="headerItem inactiveItem" [ngClass]="{activeItem: formStep >= 3, inactiveItem: formStep < 3}">
+            3
+        </div>
+        <div class="headerItem inactiveItem" [ngClass]="{activeItem: formStep >= 4, inactiveItem: formStep < 4}">
+            4
+        </div>
+        <div class="headerItem inactiveItem" [ngClass]="{activeItem: formStep >= 5, inactiveItem: formStep < 5}">
+            5
+        </div>
+    </div>
+</ion-header>
+
+<ion-content>
+    <div class="stepContainer">
+        <app-check-step1 (nextStep)="nextStep($event)" [currentAssessment]="currentAssessment" *ngIf="formStep === 1"></app-check-step1>
+        <app-check-step2 [currentAssessment]="currentAssessment" *ngIf="formStep === 2"></app-check-step2>
+        <app-check-step3 [currentAssessment]="currentAssessment" *ngIf="formStep === 3"></app-check-step3>
+        <app-check-step4 [currentAssessment]="currentAssessment" *ngIf="formStep === 4"></app-check-step4>
+    </div>
+</ion-content>

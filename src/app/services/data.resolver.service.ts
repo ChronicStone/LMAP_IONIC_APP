@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Resolve, ActivatedRouteSnapshot } from "@angular/router";
 
 import { ApiService } from "./api.service";
+import { AssessmentCheckService } from "./assessment-check.service";
 
 @Injectable({
   providedIn: "root",

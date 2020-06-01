@@ -50,20 +50,25 @@ export class SessionPage implements OnInit {
       });
   }
 
+  toAssessCheck(assessment) {
+    this.apiService.setData(assessment.id, assessment);
+    this.router.navigateByUrl("/assessment-check/" + assessment.id);
+  }
+
   setFilteredItems(searchTerm) {
     this.users = this.filterItems(searchTerm);
   }
 
   filterItems(searchTerm) {
-  if(searchTerm !=null){
-    return this.users.filter((item) => {
-      return (
-        item.first_name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
-      );
-    });
-  }else{
-    return this.users
-  }
+    if (searchTerm != null) {
+      return this.users.filter((item) => {
+        return (
+          item.first_name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+        );
+      });
+    } else {
+      return this.users;
+    }
   }
   resetSearch() {
     this.searchControl.reset();
@@ -71,7 +76,7 @@ export class SessionPage implements OnInit {
     for (let t = 0; t < this.session.assessments.length; t++) {
       this.users.push(this.session.assessments[t]);
     }
-    this.searchMode = false
+    this.searchMode = false;
   }
 
   goBack() {

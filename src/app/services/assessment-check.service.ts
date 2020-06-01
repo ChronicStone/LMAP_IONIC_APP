@@ -20,11 +20,12 @@ export class AssessmentCheckService {
     this.is_present = data.is_present;
     this.manager_comment = data.manager_comment;
 
-    return this.http.post( environment.apiBaseUrl + "/upload-image", {
-      id: data.id,
-      is_present: data.is_present,
-      manager_comment: data.manager_commment
-    })
+    // return this.http.post( environment.apiBaseUrl + "/upload-image", {
+    //   id: data.id,
+    //   is_present: data.is_present,
+    //   manager_comment: data.manager_commment
+    // })
+    console.log({pres: this.is_present, comment: this.manager_comment})
   }
 
   saveStep2(data) {

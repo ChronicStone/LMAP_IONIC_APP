@@ -17,12 +17,14 @@ export class ApiService {
   }
 
   logOut() {
-    localStorage.removeItem("userData");
+    localStorage.clear();
   }
 
   setUserData(userData) {
     localStorage.setItem("userData", JSON.stringify(userData));
   }
+
+  
 
   isLoggedIn() {
     if (localStorage.getItem("userData")) {
@@ -33,13 +35,6 @@ export class ApiService {
 
   getUserData() {
     return JSON.parse(localStorage.getItem("userData"));
-  }
-
-  updateUserData(id, data) {
-    return this.http.put(
-      environment.apiBaseUrl + "/session-manager/" + id,
-      data
-    );
   }
 
   getSessionsData() {
@@ -56,5 +51,6 @@ export class ApiService {
 
   getData(id) {
     return this.data[id];
+
   }
 }

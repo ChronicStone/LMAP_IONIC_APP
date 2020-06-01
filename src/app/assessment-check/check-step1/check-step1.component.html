@@ -1,0 +1,31 @@
+<ion-content>
+    <h1 align="center" style="color:#ab8b65;">
+        {{currentAssessment.first_name}} {{currentAssessment.last_name}}
+    </h1>
+
+    <h4 style="margin-top:40px;" align="center">
+        Candidate is :
+    </h4>
+    <div class="presenceCheck">
+        <div class="optionContainer">
+            <ion-button class="btnSizing" color="primary" [fill]="fillPresent" (click)="buttonApparence('present')">
+                Present
+            </ion-button>
+        </div>
+        <div class="optionContainer">
+            <ion-button class="btnSizing" color="primary" [fill]="fillAbsent" (click)="buttonApparence('absent')">
+                Absent
+            </ion-button>
+        </div>
+    </div>
+    <div class="managerComment">
+        <h4 align="center">Examinator's remark</h4>
+        <ion-item>
+            <ion-textarea [value]="managerComment" placeholder="Enter more information here..."></ion-textarea>
+        </ion-item>
+    </div>
+
+    <ion-button style="position:fixed;bottom:10px;width:90%;margin-left:5%;" (click)="toNextStep()">
+        NEXT STEP
+    </ion-button>
+</ion-content>

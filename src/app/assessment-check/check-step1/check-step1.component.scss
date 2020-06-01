@@ -1,0 +1,27 @@
+ion-content {
+    overflow-y: none;
+}
+
+.topContainer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 auto;
+    height: auto;
+    text-align: center;
+}
+
+.presenceCheck {
+    display: flex;
+    justify-content: center;
+    .optionContainer {
+        margin-right: 10%;
+        width: 30%;
+        .btnSizing {
+            width: 100%;
+        }
+    }
+}
+
+.managerComment {
+    margin-top: 15%;
+}

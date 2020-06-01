@@ -1,0 +1,61 @@
+<ion-content>
+    <h1 align="center" style="color:#ab8b65;">
+        {{currentAssessment.first_name}} {{currentAssessment.last_name}}
+    </h1>
+    <h4 style="margin-top:25px;width:70%;margin-left:15%;" align="center">
+        Fill the candidate's ID document informations
+    </h4>
+    <div class="takePictureID" style="margin-top:10%;">
+        Identity document informations
+    </div>
+    <form style="width:80%;margin-left:10%;" class="mt-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="doc_type">
+            ID Doc. type
+        </label>
+        <div class="inline-block relative mb-4 w-full">
+            <select id="doc_type" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                <option>National ID Card</option>
+                <option>Driver's licence</option>
+                <option>Passport</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="id_number">
+                ID Doc. number
+            </label>
+            <input class="shadow appearance-none border border-gray-400 hover:border-gray-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="id_number" type="text">
+        </div>
+    </form>
+    <div class="takePictureID">Identity document photo</div>
+    <br>
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button (click)="newPhoto()">
+            <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+    <!-- <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">ID Doc. number</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">ID Doc.</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-primary">
+            Submit
+        </button>
+    </form> -->
+
+    <ion-button style="position:fixed;bottom:10px;width:90%;margin-left:5%;" (click)="toNextStep()">
+        NEXT STEP
+    </ion-button>
+</ion-content>
+
+<script src='https: //unpkg.com/@ionic/pwa-elements@0.0.14/dist/ionicpwaelements.js'></script>

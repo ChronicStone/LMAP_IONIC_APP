@@ -14,24 +14,46 @@
             </ion-button>
         </ion-buttons>
 
+
+
+
+
+
+
+
+
+
+
         <ion-title>
-            <img src="../../assets/img/logo.png" *ngIf="searchMode === false" alt="LMAP_logo" />
-            <input type="text" *ngIf="searchMode === true" [formControl]="searchControl" />
+            <img src="../../assets/img/logo.png" *ngIf="searchMode === false" alt="LMAP_logo">
+            <input type="text" *ngIf="searchMode === true" [formControl]="searchControl">
         </ion-title>
     </ion-toolbar>
+
+
+
+
+
+
 
     <app-session-card [showBtn]="false" [session]="session"></app-session-card>
 </ion-header>
 
+
+
+
+
+
+
 <ion-content>
     <div class="wrapper" *ngIf="users?.length > 0; else none">
-        <div class="row" *ngFor="let user of users | absent : filter" [ngClass]="{
-      red: user.onsite_session_status == 2
-      }">
-            <p>{{user.first_name}}</p>
-            <i *ngIf="user.onsite_session_status == 2" class="fas fa-user-edit"></i>
-            <ion-icon *ngIf="user.onsite_session_status == 1" name="checkmark-outline"></ion-icon>
-            <i *ngIf="user.onsite_session_status == 0" class="fas fa-user-alt-slash"></i>
+        <div *ngFor="let user of users | absent : filter">
+            <div class="row" [ngClass]="{red: user.onsite_session_status == 2}" (click)="toAssessCheck(user)">
+                <p>{{user.first_name}} {{user.last_name}}</p>
+                <i *ngIf="user.onsite_session_status == 2" class="fas fa-user-edit"></i>
+                <ion-icon *ngIf="user.onsite_session_status == 1" name="checkmark-outline"></ion-icon>
+                <i *ngIf="user.onsite_session_status == 0" class="fas fa-user-alt-slash"></i>
+            </div>
         </div>
     </div>
     <ng-template #none>
@@ -39,6 +61,12 @@
             <p>No assessments yet</p>
         </div>
     </ng-template>
+
+
+
+
+
+
 
     <nav>
         <ul>
