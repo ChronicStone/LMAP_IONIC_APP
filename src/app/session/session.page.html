@@ -15,15 +15,6 @@
         </ion-buttons>
 
 
-
-
-
-
-
-
-
-
-
         <ion-title>
             <img src="../../assets/img/logo.png" *ngIf="searchMode === false" alt="LMAP_logo">
             <input type="text" *ngIf="searchMode === true" [formControl]="searchControl">
@@ -31,24 +22,14 @@
     </ion-toolbar>
 
 
-
-
-
-
-
     <app-session-card [showBtn]="false" [session]="session"></app-session-card>
 </ion-header>
-
-
-
-
-
 
 
 <ion-content>
     <div class="wrapper" *ngIf="users?.length > 0; else none">
         <div *ngFor="let user of users | absent : filter">
-            <div class="row" [ngClass]="{red: user.onsite_session_status == 2}" (click)="toAssessCheck(user)">
+            <div class="row" [ngClass]="{red: user.onsite_session_status == 0, green: user.onsite_session_status == 1}" (click)="toAssessCheck(user)">
                 <p>{{user.first_name}} {{user.last_name}}</p>
                 <i *ngIf="user.onsite_session_status == 2" class="fas fa-user-edit"></i>
                 <ion-icon *ngIf="user.onsite_session_status == 1" name="checkmark-outline"></ion-icon>
@@ -61,11 +42,6 @@
             <p>No assessments yet</p>
         </div>
     </ng-template>
-
-
-
-
-
 
 
     <nav>

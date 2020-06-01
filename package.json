@@ -30,11 +30,11 @@
         "@ionic/pwa-elements": "^1.5.2",
         "@ionic/storage": "^2.2.0",
         "md5": "^2.2.1",
+        "moment": "^2.26.0",
         "rxjs": "~6.5.1",
         "ts-md5": "^1.2.7",
         "tslib": "^1.10.0",
-        "zone.js": "~0.10.2",
-        "moment": "^2.26.0"
+        "zone.js": "~0.10.2"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "~0.901.5",

@@ -26,10 +26,33 @@ export class AssessmentCheckPage implements OnInit {
     if (this.route.snapshot.data["special"]) {
       this.currentAssessment = this.route.snapshot.data["special"];
       console.log(this.currentAssessment);
+      this.assessmentCheckService.setAssessID(this.currentAssessment.id);
     }
   }
 
-  nextStep() {
+  nextStep(event) {
+    if (event.isPresent != true) {
+      this.assessmentCheckService
+        .setAssessAbsent(this.currentAssessment.id)
+        .subscribe(
+          (res) => {
+            this.router.navigate(
+              ["/session/" + this.currentAssessment.onsite_session_id],
+              {
+                queryParams: {
+                  updateData: true,
+                  isPresent: event.isPresent,
+                  assessID: this.currentAssessment.id,
+                },
+              }
+            );
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+    } else {
+    }
     this.formStep++;
   }
 

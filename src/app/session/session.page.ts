@@ -28,6 +28,17 @@ export class SessionPage implements OnInit {
   }
 
   ngOnInit() {
+    this.route.queryParamMap.subscribe((params) => {
+      if (params.params.updateData == "true") {
+        const index = this.users
+          .map((e) => e.id)
+          .indexOf(Number(params.params.assessID));
+        console.log("index " + index);
+        if (params.params.isPresent === true)
+          this.users[index].onsite_session_status = 1;
+        else this.users[index].onsite_session_status = 0;
+      }
+    });
     if (!this.apiService.isLoggedIn()) {
       this.router.navigateByUrl("/");
     }

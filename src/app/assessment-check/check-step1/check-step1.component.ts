@@ -12,7 +12,7 @@ export class CheckStep1Component implements OnInit {
   @Output() nextStep = new EventEmitter();
 
   isPresent: boolean;
-  managerComment: string;
+  managerComment: string = "";
   presenceCheck: boolean = false;
 
   fillPresent: string = "outline";
@@ -38,7 +38,7 @@ export class CheckStep1Component implements OnInit {
         manager_commment: this.managerComment,
       };
       this.assessmentCheckService.saveStep1(data);
-      this.nextStep.emit();
+      this.nextStep.emit({ isPresent: this.isPresent });
     }
   }
 
