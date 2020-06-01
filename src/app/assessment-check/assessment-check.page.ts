@@ -31,7 +31,17 @@ export class AssessmentCheckPage implements OnInit {
   }
 
   nextStep(event) {
-    if (event.isPresent != true) {
+    console.log(event);
+    if (typeof event !== "undefined") {
+      if ("isPresent" in event) {
+        this.setAbsent(event);
+      }
+    }
+    this.formStep++;
+  }
+
+  setAbsent(event) {
+    if (event.isPresent != true)
       this.assessmentCheckService
         .setAssessAbsent(this.currentAssessment.id)
         .subscribe(
@@ -51,9 +61,6 @@ export class AssessmentCheckPage implements OnInit {
             console.log(err);
           }
         );
-    } else {
-    }
-    this.formStep++;
   }
 
   prevStep() {

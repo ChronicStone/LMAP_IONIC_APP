@@ -33,11 +33,12 @@ export class CheckStep2Component implements OnInit {
   }
 
   async toNextStep() {
+    console.log(this.id_doc_number + " " + this.id_doc_type);
     const toast = await this.toastController.create({
       message: "Missing elements on this step",
       duration: 2500,
     });
-    if (!this.id_doc_type || !this.id_doc_file || this.id_doc_number) {
+    if (!this.id_doc_type || !this.id_doc_number) {
       toast.present();
     } else {
       var data = {
