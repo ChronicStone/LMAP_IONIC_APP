@@ -1,3 +1,14 @@
-<p>
-  check-step4 works!
-</p>
+<ion-content>
+  <h1 align="center">Please sign here</h1>
+  <canvas id="signature-pad" class="signature-pad" width=400 height=200></canvas>
+  <div class="actionContainer">
+    <ion-button color="success" (click)="onSave()">Save</ion-button>
+    <ion-button color="danger" (click)="onClear()">Clear</ion-button>
+  </div>
+  <div class="previewFile">
+    <img *ngIf="base64file" [src]="base64file"/>
+  </div>
+  <ion-button style="position:fixed;bottom:10px;width:90%;margin-left:5%;" (click)="toNextStep()">
+    NEXT STEP
+  </ion-button>
+</ion-content>

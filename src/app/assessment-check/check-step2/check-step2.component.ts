@@ -16,6 +16,7 @@ export class CheckStep2Component implements OnInit {
   id_doc_type: string;
   id_doc_number: string;
   id_doc_file: any;
+  id_doc_file_base64: string;
 
   constructor(
     private assessmentCheckService: AssessmentCheckService,
@@ -28,8 +29,13 @@ export class CheckStep2Component implements OnInit {
     this.id_doc_type = this.currentAssessment.id_type;
   }
 
-  newPhoto() {
-    this.photoService.addNewToGallery();
+  async newPhoto() {
+    const resultPhoto = await this.photoService.addNewToGallery();
+    this.id_doc_file = resultPhoto.formData;
+    this.id_doc_file_base64 = resultPhoto.base64
+    console.log(resultPhoto)
+    // this.id_doc_file = 
+    // console.log("file : " + this.id_doc_file)
   }
 
   async toNextStep() {
@@ -38,7 +44,7 @@ export class CheckStep2Component implements OnInit {
       message: "Missing elements on this step",
       duration: 2500,
     });
-    if (!this.id_doc_type || !this.id_doc_number) {
+    if (!this.id_doc_type || !this.id_doc_number || !this.id_doc_file) {
       toast.present();
     } else {
       var data = {

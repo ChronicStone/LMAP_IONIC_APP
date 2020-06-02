@@ -32,28 +32,14 @@
                 type="text">
         </div>
     </form>
-    <div class="takePictureID">Identity document photo</div>
-    <br>
-    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-        <ion-fab-button (click)="newPhoto()">
+    <div class="takePictureID">
+        <ion-button (click)="newPhoto()">
             <ion-icon name="camera"></ion-icon>
-        </ion-fab-button>
-    </ion-fab>
-
-    <!-- <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">ID Doc. number</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">ID Doc.</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <button type="submit" class="btn btn-primary">
-            Submit
-        </button>
-    </form> -->
-
+            TAKE DOCUMENT PHOTO
+        </ion-button>
+        <img *ngIf="id_doc_file_base64" [src]="id_doc_file_base64"/>
+    </div>
+    
     <ion-button style="position:fixed;bottom:10px;width:90%;margin-left:5%;" (click)="toNextStep()">
         NEXT STEP
     </ion-button>

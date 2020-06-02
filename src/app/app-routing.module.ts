@@ -48,6 +48,7 @@ const routes: Routes = [
         (m) => m.AssessmentCheckPageModule
       ),
   },
+
 ];
 @NgModule({
   imports: [

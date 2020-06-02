@@ -1,3 +1,19 @@
-<p>
-  check-step3 works!
-</p>
+<ion-content>
+  <div class="HeadText">
+    <h4 align="center">TAKE CANDIDATE IDENDITY PHOTO</h4>
+    <ion-button (click)="newPhoto()">
+      <ion-icon name="camera"></ion-icon>
+      TAKE DOCUMENT PHOTO
+  </ion-button>
+  </div>
+  <div *ngIf="candidate_photo_base64" class="previewBloc">
+    <img [src]="candidate_photo_base64" />
+  </div>
+  <div *ngIf="!candidate_photo_base64" class="instructionBloc">
+    <p align="center">Make sure that the candidate photo fits the stantards of an official identity photo. You can rely on the following example</p>
+    <img src="https://www.gov.il/BlobFolder/generalpage/biometric_photo_guide/en/Passport%20photo%20diagram.png" />
+  </div>
+  <ion-button style="position:fixed;bottom:10px;width:90%;margin-left:5%;" (click)="toNextStep()">
+    NEXT STEP
+  </ion-button>
+</ion-content>

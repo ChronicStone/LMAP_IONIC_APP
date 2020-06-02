@@ -31,7 +31,6 @@ export class AssessmentCheckPage implements OnInit {
   }
 
   nextStep(event) {
-    console.log(event);
     if (typeof event !== "undefined") {
       if ("isPresent" in event) {
         this.setAbsent(event);
@@ -52,6 +51,28 @@ export class AssessmentCheckPage implements OnInit {
                 queryParams: {
                   updateData: true,
                   isPresent: event.isPresent,
+                  assessID: this.currentAssessment.id,
+                },
+              }
+            );
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+  }
+
+  startExam() {
+    this.assessmentCheckService
+        .setAssessPresent(this.currentAssessment.id)
+        .subscribe(
+          (res) => {
+            this.router.navigate(
+              ["/session/" + this.currentAssessment.onsite_session_id],
+              {
+                queryParams: {
+                  updateData: true,
+                  isPresent: true,
                   assessID: this.currentAssessment.id,
                 },
               }
