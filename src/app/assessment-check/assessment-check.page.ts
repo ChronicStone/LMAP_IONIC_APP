@@ -72,7 +72,7 @@ export class AssessmentCheckPage implements OnInit {
               {
                 queryParams: {
                   updateData: true,
-                  isPresent: true,
+                  isPresent: "true",
                   assessID: this.currentAssessment.id,
                 },
               }

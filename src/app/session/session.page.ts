@@ -34,7 +34,7 @@ export class SessionPage implements OnInit {
           .map((e) => e.id)
           .indexOf(Number(params.params.assessID));
         console.log("index " + index);
-        if (params.params.isPresent === true)
+        if (params.params.isPresent == "true")
           this.users[index].onsite_session_status = 1;
         else this.users[index].onsite_session_status = 0;
       }
