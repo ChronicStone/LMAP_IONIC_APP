@@ -1,29 +1,48 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
+import { DataResolverService } from "./services/data.resolver.service";
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: "",
+    loadChildren: () =>
+      import("./home/home.module").then((m) => m.HomePageModule),
   },
   {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    path: "login",
+    loadChildren: () =>
+      import("./login/login.module").then((m) => m.LoginPageModule),
   },
   {
-    path: 'sessions',
-    loadChildren: () => import('./sessions-list/sessions-list.module').then( m => m.SessionsListPageModule)
-  },  {
-    path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
-  }
-
-
+    path: "sessions",
+    loadChildren: () =>
+      import("./sessions-list/sessions-list.module").then(
+        (m) => m.SessionsListPageModule
+      ),
+  },
+  {
+    path: "profile",
+    loadChildren: () =>
+      import("./profile/profile.module").then((m) => m.ProfilePageModule),
+  },
+  {
+    path: "session",
+    loadChildren: () =>
+      import("./session/session.module").then((m) => m.SessionPageModule),
+  },
+  {
+    path: "session/:id",
+    resolve: {
+      special: DataResolverService,
+    },
+    loadChildren: () =>
+      import("./session/session.module").then((m) => m.SessionPageModule),
+  },
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

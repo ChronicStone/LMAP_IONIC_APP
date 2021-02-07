@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="goBsack()">
+      <ion-button>
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goSearch()">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      <img src="../../assets/img/logo.png" alt="LMAP_logo" />
+    </ion-title>
+  </ion-toolbar>
+
+  <app-session-card [session]="session"></app-session-card>
+</ion-header>
+
+<ion-content>
+  <div class="wrapper">
+    <div
+      class="row"
+      *ngFor="let user of users | absent : filter"
+      [ngClass]="{
+      red: user.statut == 2
+      }"
+    >
+      <p>{{user.first_name}}</p>
+      <i *ngIf="user.statut == 2" class="fas fa-user-edit"></i>
+      <ion-icon *ngIf="user.statut == 1" name="checkmark-outline"></ion-icon>
+      <i *ngIf="user.statut == 0" class="fas fa-user-alt-slash"></i>
+    </div>
+  </div>
+
+  <nav>
+    <ul>
+      <li>
+        <ion-button (click)="seeDone()">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </ion-button>
+      </li>
+      <li>
+        <ion-button (click)="seeEdit()">
+          <i class="fas fa-user-edit"></i>
+        </ion-button>
+      </li>
+      <li>
+        <ion-button (click)="seeAbsent()">
+          <i class="fas fa-user-alt-slash"></i>
+        </ion-button>
+      </li>
+    </ul>
+  </nav>
+</ion-content>

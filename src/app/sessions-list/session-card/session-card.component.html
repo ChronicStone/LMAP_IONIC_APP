@@ -13,9 +13,6 @@
     </div>
 
 
-
-
-
     <div class="hiddenContent" [ngClass]="{
       reveal: expand
     }">
@@ -34,12 +31,14 @@
             </p>
         </div>
 
-
-
-
-
-        <ion-button shape="round" color="primary" (click)="toLogin()" class="m-auto">
-            See more
-        </ion-button>
-    </div>
+    <ion-button
+      shape="round"
+      color="primary"
+      (click)="toSession(session.id)"
+      class="m-auto"
+    >
+      See more
+    </ion-button>
+  </div>
 </div>
+

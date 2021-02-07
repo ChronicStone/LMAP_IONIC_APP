@@ -41,4 +41,14 @@ export class ApiService {
       environment.apiBaseUrl + `/onsite-session/${managerId}`
     );
   }
+
+  private data = [];
+  setData(id, data) {
+    this.data[id] = data;
+  }
+
+  getData(id) {
+    return this.data[id];
+
+  }
 }
